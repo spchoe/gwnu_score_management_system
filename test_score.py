@@ -28,8 +28,8 @@ class Score:
         with open("result.csv", "w", encoding="utf-8") as wf:
             for i in range(len(self.context)):
                 wf.write(self.context[i].replace('\n','') + ',')
-                wf.write(self.total[i].__str__() + ',')
-                wf.write(self.avg[i].__str__() + ',')
+                wf.write('총합 : ' + self.total[i].__str__() + ',')
+                wf.write('평균 : ' + self.avg[i].__str__() + ',')
                 wf.write(self.ranking[i].__str__() + '등' + '\n')
 
 csp = Score()
