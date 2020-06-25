@@ -17,6 +17,20 @@ class Score:
             math = int(student[4])
             self.total.append(kor + eng + math)
             self.avg.append(round(self.total[i] / 3, 2))
+            
+        for score1 in self.total:
+            r = 1
+            for score2 in self.total:
+                if score1 < score2:
+                    r += 1
+            self.ranking.append(r)
+
+        with open("result.csv", "w", encoding="utf-8") as wf:
+            for i in range(len(self.context)):
+                wf.write(self.context[i].replace('\n','') + ',')
+                wf.write(self.total[i].__str__() + ',')
+                wf.write(self.avg[i].__str__() + ',')
+                wf.write(self.ranking[i].__str__() + '등' + '\n')
 
 csp = Score()
 csp.open()
